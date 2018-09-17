@@ -28,6 +28,11 @@ namespace Cards
             {
                 suit = (Suit)randomCardSelector.Next(NumSuits);
             }
+            Value value = (Value)randomCardSelector.Next(CardsPerSuit);
+            while (this.IsCardAlreadyDealt(suit, value))
+            {
+                value = (Value)randomCardSelector.Next(CardsPerSuit);
+            }
         }
 
         private bool IsSuitEmpty(Suit suit)
